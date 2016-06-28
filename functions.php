@@ -51,6 +51,8 @@ function hackeryou_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+	wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700|Permanent+Marker');
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');
@@ -281,3 +283,6 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+/* Hide admin bar */
+add_filter('show_admin_bar', '__return_false');

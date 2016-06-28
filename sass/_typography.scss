@@ -1,3 +1,11 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 16px;
+}
+
 a {
 	color: #BA209B;
 	text-decoration: none;
@@ -6,10 +14,17 @@ a {
 	}
 }
 
+/* titles */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $fontTitle;
+}
+
 /* paragraphs */
 
 p {
 	line-height: 1.5;
+	font-family: $fontBody;
 }
 
 /*blockquotes*/
