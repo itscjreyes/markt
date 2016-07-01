@@ -22,10 +22,11 @@
 		</h1>
 
 		<nav>
-			<?php wp_nav_menu( array(
-				'container' => false,
-				'theme_location' => 'primary'
-			)); ?>
+			<ul>
+				<li><a href="<?php echo home_url(); ?>">home</a></li>
+				<li><a href="<?php echo get_post_type_archive_link('recipes'); ?>">recipes</a></li>
+				<li><a href="<?php echo home_url(); ?>/#contact">contact</a></li>
+			</ul>
 		</nav>
 	</div> <!-- /.container -->
 </header><!--/.header-->

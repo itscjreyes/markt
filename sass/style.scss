@@ -32,6 +32,28 @@ body {
 	max-width: 1200px;
 	width: 80%;
 	margin: 0 auto;
+	padding: 50px 0;
+}
+
+button {
+	display: block;
+	width: 150px;
+	margin: 0 auto;
+	padding: 5px 0;
+	border: 2px solid $accentColour;
+	background: rgba(0,0,0,0);
+	color: $accentColour;
+	text-transform: uppercase;
+	font-family: $fontTitle;
+	letter-spacing: 2px;
+	font-size: 1.4rem;
+	transition: all 0.3s ease;
+
+	&:hover {
+		background: $gradient;
+		color: white;
+		border: 2px solid white;
+	}
 }
 
 .content {
@@ -45,41 +67,145 @@ body {
 }
 
 header {
-	position: fixed;
 	width: 100%;
 
 	.container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 0;
+	}
+
+	h1 {
+		font-size: 2.5rem;
 	}
 }
 
 .splash {
-	height: 80vh;
-	padding-top: 10vh;
+	min-height: 80vh;
 
-	h1 {
-		text-transform: uppercase;
-		position: absolute;
-		left: 15%;
-		top: 40%;
-		font-family: $cursive;
-		font-size: 5rem;
+	.container {
+		padding: 0 0 50px;
 	}
 }
 
-.splashImg {
+.splashBlock {
 	height: 80vh;
-	width: 80%;
-	float: right;
+	width: 100%;
+	background: $gradient;
+	display: flex;
+
+	.wrapper {
+		margin: auto;
+	}
+
+	h1 {
+		text-transform: uppercase;
+		font-family: $fontTitle;
+		font-size: 3rem;
+		color: white;
+		letter-spacing: 10px;
+	}
+}
+
+.seeFeatured {
+	border: 2px solid white;
+	color: white;
+
+	&:hover {
+		background: white;
+		color: $accentColour;
+	}
+}
+
+.bio,
+.contact {
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.bioSection,
+.contactForm {
+	width: 40%;
+	height: 300px;
+	text-align: center;
+}
+
+.image1,
+.image2 {
+	width: 60%;
+	height: 300px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
+.divider {
+	width: 80%;
+	margin: 50px auto;
+	height: 5px;
+	background: $gradient;
+}
 
+.recipes {
 
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}
+
+figure {
+	width: 30%;
+	margin-bottom: 40px;
+	position: relative;
+
+	&:hover,
+	&:focus {
+		figcaption {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.foodImg {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+}
+
+figcaption {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border: 5px solid $accentColour;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+
+	h3 {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+.foodImg {
+	width: 100%;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: all 0.3s ease;
+}
 
 
 
