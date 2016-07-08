@@ -73,6 +73,14 @@ function hackeryou_scripts() {
   );
 
   wp_enqueue_script(
+  	'smoothScroll',
+  	"http://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js",
+  	array('jquery', 'plugins'),
+  	null,
+  	true
+  	);
+
+  wp_enqueue_script(
     'plugins', //handle
     get_template_directory_uri() . '/js/plugins.js', //source
     false, //dependencies
@@ -282,6 +290,13 @@ function get_post_parent($post) {
 	else {
 		return $post->ID;
 	}
+}
+
+/* Add options */ 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
 }
 
 /* Hide admin bar */

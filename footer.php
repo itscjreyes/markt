@@ -1,9 +1,21 @@
 <footer>
   <div class="container">
-    <p>&copy; HackerYou <?php echo date('Y'); ?></p>
+	<p>Designed & Developed by <a href="http://cjreyes.ca">CJ Reyes</a> &copy; <?php echo date('Y'); ?></p>
+	<h5>
+		<a href="<?php echo home_url( '/' ); ?>">
+			<?php bloginfo( 'name' ); ?>
+		</a>
+	</h5>
+	<div class="socialMedia">
+		<a href="<?php the_field('instagram', 'option') ?>"><i class="fa fa-instagram"></i></a>
+		<a href="<?php the_field('twitter', 'option') ?>"><i class="fa fa-twitter"></i></a>
+		<a href="<?php the_field('facebook', 'option') ?>"><i class="fa fa-facebook"></i></a>
+		<a href="<?php the_field('pinterest', 'option') ?>"><i class="fa fa-pinterest"></i></a>
+	</div>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
 <script>
 // scripts.js, plugins.js and jquery are enqueued in functions.php
 /* Google Analytics! */

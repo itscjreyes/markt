@@ -15,13 +15,19 @@
 
 <header>
 	<div class="container">
-		<h1>
-			<a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
+		<h2>
+			<a href="<?php echo home_url( '/' ); ?>">
 				<?php bloginfo( 'name' ); ?>
 			</a>
-		</h1>
+		</h2>
 
-		<nav>
+		<div class="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		<nav class="mainNav">
 			<ul>
 				<li><a href="<?php echo home_url(); ?>">home</a></li>
 				<li><a href="<?php echo get_post_type_archive_link('recipes'); ?>">recipes</a></li>

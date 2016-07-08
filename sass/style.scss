@@ -32,17 +32,18 @@ body {
 	max-width: 1200px;
 	width: 80%;
 	margin: 0 auto;
-	padding: 50px 0;
+	padding: 70px 0;
 }
 
-button {
+button,
+input[type="submit"] {
 	display: block;
 	width: 150px;
 	margin: 0 auto;
 	padding: 5px 0;
-	border: 2px solid $accentColour;
+	border: 2px solid $typeColour;
 	background: rgba(0,0,0,0);
-	color: $accentColour;
+	color: $typeColour;
 	text-transform: uppercase;
 	font-family: $fontTitle;
 	letter-spacing: 2px;
@@ -50,9 +51,9 @@ button {
 	transition: all 0.3s ease;
 
 	&:hover {
-		background: $gradient;
+		background: $accentColour;
 		color: white;
-		border: 2px solid white;
+		border: 2px solid $accentColour;
 	}
 }
 
@@ -66,46 +67,206 @@ button {
 	width: 100%;
 }
 
+////// HEADER STYLES //////
+
 header {
 	width: 100%;
+	position: fixed;
+	top: 0;
+	background: white;
+	z-index: 1000;
 
 	.container {
+		align-items: center;
+		padding: 0;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+		text-align: center;
+		transition: all 0.4s ease;
+	}
+}
+
+.titleShow {
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0.8);
+}
+
+.mainNav {
+	position: absolute;
+	right: 0;
+	left: 0;
+	visibility: hidden;
+	opacity: 0;
+	top: -10px;
+	display: flex;
+	font-size: 1.4rem;
+	padding: 5px;
+	transition: all 0.3s ease;
+
+	ul {
+		margin: auto;
+	}
+}
+
+.show {
+	top: 2px;
+	visibility: visible;
+	opacity: 1;
+}
+
+.hamburger {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	width: 30px;
+	height: 20px;
+	transform: rotate(0deg);
+	transition: .5s ease-in-out;
+	cursor: pointer;
+	z-index: 999;
+
+	span {
+		display: block;
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		background: black;
+		border-radius: 9px;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+	}
+
+	span:nth-child(1) {
+	  top: 0px;
+	  transform-origin: left center;
+	}
+
+	span:nth-child(2) {
+	  top: 10px;
+	  transform-origin: left center;
+	}
+
+	span:nth-child(3) {
+	  top: 20px;
+	  transform-origin: left center;
+	}
+}
+
+.hamburger.open {
+	span:nth-child(1) {
+	  transform: rotate(45deg);
+	  top: -3px;
+	  left: 8px;
+	}
+
+	span:nth-child(2) {
+	  width: 0%;
+	  opacity: 0;
+	}
+
+	span:nth-child(3) {
+	  transform: rotate(-45deg);
+	  top: 18px;
+	  left: 8px;
+	}
+}
+
+
+////// FOOTER STYLES //////
+
+footer {
+	.container {
+		margin: 20px auto 0;
+		padding: 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0;
 	}
 
-	h1 {
-		font-size: 2.5rem;
+	p {
+		font-family: $fontTitle;
+		font-size: 1.1rem;
+		text-transform: uppercase;
+		text-align: left;
+	}
+
+	.socialMedia {
+		text-align: right;
+
+		.fa {
+			font-size: 2rem;
+			padding: 0 5px;
+		}
+	}
+
+	h5 {
+		text-align: center;
+		font-size: 1.8rem;
+	}
+
+	p,
+	h5,
+	.socialMedia {
+		width: 33.3%;
 	}
 }
+
+
+////// HOME PAGE STYLES //////
+
+/// SPLASH SECTION STYLES ///
 
 .splash {
 	min-height: 80vh;
 
 	.container {
-		padding: 0 0 50px;
+		margin-top: 10px;
+	}
+}
+
+@keyframes splash-colour {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
 	}
 }
 
 .splashBlock {
 	height: 80vh;
 	width: 100%;
-	background: $gradient;
 	display: flex;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 
 	.wrapper {
 		margin: auto;
+		background: $gradient;
+		background-size: 700% 700%;
+		animation: splash-colour 40s ease infinite;
+		padding: 20px 40px;
 	}
+}
 
-	h1 {
-		text-transform: uppercase;
-		font-family: $fontTitle;
-		font-size: 3rem;
-		color: white;
-		letter-spacing: 10px;
-	}
+h1 {
+	text-transform: uppercase;
+	font-family: $fontTitle;
+	font-size: 3rem;
+	color: white;
+	letter-spacing: 10px;
+	margin: 0 0 20px 0;
 }
 
 .seeFeatured {
@@ -115,41 +276,15 @@ header {
 	&:hover {
 		background: white;
 		color: $accentColour;
+		border: 2px solid white;
 	}
 }
+
+/// BIO STYLES ///
 
 .bio,
 .contact {
-	.container {
-		display: flex;
-		flex-wrap: wrap;
-	}
-}
-
-.bioSection,
-.contactForm {
-	width: 40%;
-	height: 300px;
-	text-align: center;
-}
-
-.image1,
-.image2 {
-	width: 60%;
-	height: 300px;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-.divider {
-	width: 80%;
-	margin: 50px auto;
-	height: 5px;
-	background: $gradient;
-}
-
-.recipes {
+	position: relative;
 
 	.container {
 		display: flex;
@@ -158,55 +293,286 @@ header {
 	}
 }
 
-figure {
-	width: 30%;
-	margin-bottom: 40px;
-	position: relative;
-
-	&:hover,
-	&:focus {
-		figcaption {
-			visibility: visible;
-			opacity: 1;
-		}
-
-		.foodImg {
-			visibility: hidden;
-			opacity: 0;
-		}
-	}
+.bioSection,
+.contactForm {
+	width: 50%;
+	height: 300px;
+	text-align: center;
 }
 
-figcaption {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	border: 5px solid $accentColour;
-	visibility: hidden;
-	opacity: 0;
-	transition: all 0.3s ease;
-	display: flex;
-	align-items: center;
-
-	h3 {
-		text-align: center;
-		width: 100%;
-	}
+.bio p {
+	margin: 30px 0;
 }
 
-.foodImg {
-	width: 100%;
-	height: 200px;
+.image1,
+.image2 {
+	width: 40%;
+	height: 300px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	transition: all 0.3s ease;
+}
+
+.socialMedia {
+
+	.fa {
+		font-size: 2.5rem;
+		padding: 0 10px;
+	}
+}
+
+/// RECIPES STYLES ///
+
+.recipes {
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		height: 100vh;
+		padding-bottom: 40px;
+	}
+
+	figure {
+		width: 33.3%;
+		height: 50%;
+		position: relative;
+
+		&:hover,
+		&:focus {
+			figcaption {
+				visibility: visible;
+				opacity: 1;
+				top: 50%;
+			}
+		}
+
+	}
+	figcaption {
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: white;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+
+		h3 {
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.foodImg {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		transition: all 0.3s ease;
+	}
 }
 
 
 
+.seeAll {
+	margin: 50px auto;
+}
 
+/// CONTACT FORM STYLES ///
+
+.contactForm {
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid white;
+		border-bottom: 1px solid $typeColour;
+
+		&:focus {
+			border: 1px solid $accentColour;
+			outline: none;
+		} 
+	}
+
+	textarea {
+		height: 175px;
+		resize: none;
+	}
+
+	p {
+		margin: 0 0 20px 0;
+	}
+}
+
+
+////// ARCHIVE STYLES //////
+
+.archiveRecipes {
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 40px;
+	}
+
+	figure {
+		width: 33.3%;
+		height: 400px;
+		padding-bottom: 30px;
+
+		&:hover,
+		&:focus {
+			figcaption {
+				background: $accentColour;
+			}
+			a {
+				color: $typeColour;
+			}
+		}
+	}
+
+	figcaption {
+		width: 100%;
+		height: 20%;
+		background: white;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+
+		h3 {
+			text-align: center;
+			width: 100%;
+			font-size: 1.5rem;
+		}
+	}
+
+	.foodImg {
+		width: 100%;
+		height: 80%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		transition: all 0.3s ease;
+	}
+}
+
+
+////// SINGLE PAGE STYLES //////
+
+/// SPLASH SECTION STYLES ///
+
+.foodHeadImg {
+	height: 70vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+
+	.wrapper {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	h1 {
+		background-color: white;
+		text-align: center;
+		color: $accentColour;
+		padding: 5px 20px;
+	}
+
+	button {
+		background-color: $accentColour;
+		border: 2px solid $accentColour;
+
+		&:hover,
+		&:focus {
+			border: 2px solid white;
+		}
+	}
+
+	.fa {
+		font-size: 5rem;
+
+		margin: 0 50px;
+		color: white;
+		text-shadow: 0px 0px 8px black;
+		transition: all 0.3s ease;
+
+		&:hover {
+			color: $accentColour;
+		}
+	}
+}
+
+/// CONTENT STYLES ///
+
+.main {
+	.container {
+		padding: 0;
+	}
+	h3 {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		padding-bottom: 10px;
+	}
+}
+
+.stats {
+	text-align: center;
+
+	p {
+		padding: 0 15px;
+		margin: 0 10px;
+		background: $accentColour;
+		display: inline-block;
+		color: white;
+		font-weight: bold;
+		letter-spacing: 1px;
+		font-size: 1.4rem;
+	}
+}
+		
+.recipe,
+.blog {
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 0;
+}
+
+.ingredients {
+	width: 30%;
+
+	ul li {
+		display: block;
+	}
+}
+
+.steps {
+	width: 65%;
+
+	ol {
+		padding-left: 20px;
+
+		li {
+			padding-bottom: 10px;
+		}
+	}
+}
+
+.blog h3 {
+	width: 30%;
+}
+
+.content {
+	width: 65%;
+	margin: 0;
+}
