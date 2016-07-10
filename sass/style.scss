@@ -519,6 +519,7 @@ h1 {
 	.container {
 		padding: 0;
 	}
+
 	h3 {
 		text-transform: uppercase;
 		letter-spacing: 2px;
@@ -575,4 +576,128 @@ h1 {
 .content {
 	width: 65%;
 	margin: 0;
+}
+
+
+////// RESPONSIVE STYLES //////
+
+@media (max-width: 980px) {
+
+	// Featured Recipes
+	.recipes,
+	.archiveRecipes {
+		.container {
+			height: 100%;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		figure {
+			width: 50%;
+			height: 300px;
+			margin-bottom: 30px;
+
+			&:hover,
+			&:focus {
+				figcaption {
+					top: 80%;
+					background: $accentColour;
+					color: white;
+				}
+			}
+		}
+
+		figcaption {
+			visibility: visible;
+			opacity: 1;
+			top: 80%;
+			height: 20%;
+
+			h3 {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@media (max-width: 850px) {
+
+	//Contact Section
+	.image2 {
+		display: none;
+	}
+
+	.contactForm {
+		width: 100%;
+	}
+}
+
+@media (max-width: 700px) {
+
+	//Container
+	.container {
+		width: 90%;
+	}
+
+	.splash,
+	.recipes,
+	.archiveRecipes {
+		.container {
+			width: 100%;
+		}
+	}
+
+	//Bio Section
+	.image1 {
+		display:none;
+	}
+
+	.bioSection {
+		width: 100%;
+	}
+
+	//Single Page
+	.blog,
+	.recipe {
+		display: block;
+	}
+
+	.ingredients,
+	.steps,
+	.content {
+		width: 100%;
+	}
+
+	.main h3,
+	.ingredients {
+		width: 100%;
+		text-align: center;
+	}
+
+	.singleTitle h1 {
+		font-size: 2.5rem;
+	}
+
+	.foodHeadImg .fa {
+		margin: 0 20px;
+	}
+}
+
+@media (max-width: 500px) {
+
+	//Tagline
+	.splashBlock .wrapper {
+		padding: 20px;
+	}
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	//Feature Recipes
+	.recipes,
+	.archiveRecipes {
+		figure {
+			width: 100%;
+		}
+	} 
 }

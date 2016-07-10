@@ -16,6 +16,8 @@
 	</div>
 </div>
 
+<?php echo the_field('social_sharing') ?>
+
 <div class="main">
 	<div class="container">
 		<div class="stats">

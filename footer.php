@@ -1,6 +1,6 @@
 <footer>
   <div class="container">
-	<p>Designed & Developed by <a href="http://cjreyes.ca">CJ Reyes</a> &copy; <?php echo date('Y'); ?></p>
+	<p><a href="http://cjreyes.ca">CJ Reyes</a> &copy; <?php echo date('Y'); ?></p>
 	<h5>
 		<a href="<?php echo home_url( '/' ); ?>">
 			<?php bloginfo( 'name' ); ?>
