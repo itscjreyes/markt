@@ -4,12 +4,12 @@
 	<div class="container">
 		<?php $foodImg = get_field('food_image') ?>
 		<div class="foodHeadImg" style="background-image: url('<?php echo $foodImg['url'] ?>')">
+			<div class="singleTitle">
+				<h1><?php the_title(); ?></h1>
+				<a href="<?php echo get_post_type_archive_link('recipes'); ?>"><button class="seeFeatured">See All</button></a>
+			</div>
 			<div class="wrapper">
 				<p class="nav-previous"><?php previous_post_link('%link', '<i class="fa fa-angle-left"></i>'); ?></p>
-				<div class="singleTitle">
-					<h1><?php the_title(); ?></h1>
-					<a href="<?php echo get_post_type_archive_link('recipes'); ?>"><button class="seeFeatured">See All</button></a>
-				</div>
 				<p class="nav-next"><?php next_post_link('%link', '<i class="fa fa-angle-right"></i>'); ?></p>
 			</div>
 		</div>
